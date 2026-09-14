@@ -1,0 +1,66 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@theme inline {
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-serif: "Instrument Serif", Georgia, serif;
+  --font-instrument-serif: "Instrument Serif", Georgia, serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+  --color-background: var(--bg-0);
+  --color-foreground: var(--text-100);
+  --color-brand: var(--brand);
+  --color-brand-soft: var(--brand-soft);
+}
+
+:root {
+  --bg-0: #070d1f;
+  --bg-100: #0b1530;
+  --bg-200: #142046;
+  --bg-300: #1f2f5c;
+  --text-100: #f8fafc;
+  --text-200: #e2e8f0;
+  --text-300: #cbd5e1;
+  --text-400: #94a3b8;
+  --brand: #60a5fa;
+  --brand-soft: #93c5fd;
+  --radius: 0.5rem;
+  --background: var(--bg-0);
+  --foreground: var(--text-100);
+}
+
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@utility animate-fade-slide-in-1 {
+  animation: fadeSlideIn 0.7s ease-out both;
+  animation-delay: 0.1s;
+}
+
+@utility animate-fade-slide-in-2 {
+  animation: fadeSlideIn 0.7s ease-out both;
+  animation-delay: 0.25s;
+}
+
+@utility animate-fade-slide-in-3 {
+  animation: fadeSlideIn 0.7s ease-out both;
+  animation-delay: 0.4s;
+}
+
+@utility animate-fade-slide-in-4 {
+  animation: fadeSlideIn 0.7s ease-out both;
+  animation-delay: 0.55s;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+}

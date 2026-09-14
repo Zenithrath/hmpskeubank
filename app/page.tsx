@@ -2,6 +2,8 @@ import ResponsiveHeroBanner from "@/components/ui/responsive-hero-banner";
 import Starfield from "@/components/ui/starfield";
 import SiteNavbar from "@/components/site-navbar";
 import AboutSection from "@/components/sections/about-section";
+import VideoSection from "@/components/sections/video-section";
+import AngkaSection from "@/components/sections/angka-section";
 import VisiMisiSection from "@/components/sections/visi-misi-section";
 import FaqSection from "@/components/sections/faq-section";
 import SiteFooter from "@/components/site-footer";
@@ -35,6 +37,8 @@ export default function Home() {
       />
       <AboutSection />
       <VisiMisiSection />
+      <VideoSection />
+      <AngkaSection />
       <FaqSection />
       <SiteFooter />
     </main>

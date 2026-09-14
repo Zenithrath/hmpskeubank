@@ -1,4 +1,5 @@
 import { ChevronDown } from "lucide-react";
+import SectionWatermark from "@/components/ui/section-watermark";
 
 const faqs = [
   {
@@ -25,8 +26,9 @@ const faqs = [
 
 export default function FaqSection() {
   return (
-    <section className="relative border-t border-slate-400/10">
-      <div className="mx-auto max-w-3xl px-6 py-24 md:py-32">
+    <section className="relative overflow-hidden border-t border-slate-400/10">
+      <SectionWatermark text="TANYA" />
+      <div className="relative mx-auto max-w-3xl px-6 py-24 md:py-32">
         <div className="text-center">
           <span className="inline-flex items-center rounded-full border border-blue-400/30 bg-blue-500/10 px-3 py-1 font-sans text-xs font-medium tracking-widest text-white uppercase">
             FAQ

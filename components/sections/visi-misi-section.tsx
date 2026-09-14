@@ -1,4 +1,5 @@
 import { ArrowRight, Compass, Eye, HeartHandshake, Lightbulb, ShieldCheck } from "lucide-react";
+import SectionWatermark from "@/components/ui/section-watermark";
 
 const misi = [
   {
@@ -35,8 +36,9 @@ const misi = [
 
 export default function VisiMisiSection() {
   return (
-    <section className="relative border-y border-slate-400/10">
-      <div className="mx-auto max-w-7xl px-6 py-24 md:py-32">
+    <section className="relative overflow-hidden border-y border-slate-400/10">
+      <SectionWatermark text="DHARMA" />
+      <div className="relative mx-auto max-w-7xl px-6 py-24 md:py-32">
         <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
           <h2 className="max-w-xl font-sans text-4xl leading-tight font-bold tracking-tight text-white md:text-6xl">
             Panca Gerak Vistara Dharma

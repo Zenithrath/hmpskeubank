@@ -5,11 +5,18 @@
   --font-sans: "Inter", system-ui, sans-serif;
   --font-serif: "Instrument Serif", Georgia, serif;
   --font-instrument-serif: "Instrument Serif", Georgia, serif;
+  --font-jakarta: "Plus Jakarta Sans", "Inter", system-ui, sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
   --color-background: var(--bg-0);
   --color-foreground: var(--text-100);
   --color-brand: var(--brand);
   --color-brand-soft: var(--brand-soft);
+  --color-muted: var(--bg-200);
+  --color-muted-foreground: var(--text-400);
+  --color-border: var(--line);
+  --color-primary: var(--brand);
+  --color-secondary: var(--brand-soft);
+  --color-destructive: var(--danger);
 }
 
 :root {
@@ -23,9 +30,14 @@
   --text-400: #94a3b8;
   --brand: #60a5fa;
   --brand-soft: #93c5fd;
+  --line: rgb(255 255 255 / 0.1);
+  --danger: #f87171;
   --radius: 0.5rem;
   --background: var(--bg-0);
   --foreground: var(--text-100);
+  --primary: var(--brand);
+  --secondary: var(--brand-soft);
+  --destructive: var(--danger);
 }
 
 @keyframes fadeSlideIn {
@@ -59,10 +71,9 @@
   animation-delay: 0.55s;
 }
 
-/* Reveal on scroll — dipakai via <Reveal> */
+/* Reveal on scroll — dipakai via <Reveal>, main dua arah */
 .reveal {
   opacity: 0;
-  transform: translateY(26px);
   filter: blur(6px);
   transition:
     opacity 0.7s ease,
@@ -70,6 +81,22 @@
     filter 0.7s ease;
   transition-delay: var(--reveal-delay, 0ms);
   will-change: opacity, transform;
+}
+
+.reveal[data-variant="up"] {
+  transform: translateY(26px);
+}
+
+.reveal[data-variant="pop"] {
+  transform: scale(0.92) translateY(12px);
+}
+
+.reveal[data-variant="left"] {
+  transform: translateX(44px);
+}
+
+.reveal[data-variant="right"] {
+  transform: translateX(-44px);
 }
 
 .reveal.is-visible {
@@ -85,10 +112,138 @@
     filter: none;
     transition: none;
   }
+  .animate-aurora,
+  .animate-aurora-1,
+  .animate-aurora-2,
+  .animate-aurora-3 {
+    animation: none;
+  }
+}
+
+/* Aurora border — gradasi silver/navy yang panning halus */
+@keyframes aurora {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@utility animate-aurora {
+  animation: aurora 8s ease-in-out infinite;
+}
+
+/* Aurora background — silver & biru, muncul-hilang perlahan */
+@keyframes aurora-float {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.9;
+  }
+  50% {
+    transform: translate(120px, 90px) scale(1.15);
+    opacity: 0.6;
+  }
+  75% {
+    opacity: 0.9;
+  }
+}
+
+@utility animate-aurora-1 {
+  animation: aurora-float 22s ease-in-out infinite;
+}
+
+@utility animate-aurora-2 {
+  animation: aurora-float 28s ease-in-out -8s infinite;
+}
+
+@utility animate-aurora-3 {
+  animation: aurora-float 34s ease-in-out -16s infinite;
+}
+
+/* Glass pill ala footer + kilau shiny saat hover */
+.glass-pill {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  font-family: "Plus Jakarta Sans", "Inter", system-ui, sans-serif;
+  background: linear-gradient(
+    145deg,
+    color-mix(in oklch, var(--foreground) 5%, transparent) 0%,
+    color-mix(in oklch, var(--foreground) 2%, transparent) 100%
+  );
+  box-shadow:
+    0 10px 30px -10px color-mix(in oklch, var(--background) 60%, transparent),
+    inset 0 1px 1px color-mix(in oklch, var(--foreground) 12%, transparent),
+    inset 0 -1px 2px color-mix(in oklch, var(--background) 80%, transparent);
+  border: 1px solid color-mix(in oklch, var(--foreground) 12%, transparent);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-pill:hover {
+  border-color: color-mix(in oklch, var(--foreground) 25%, transparent);
+  box-shadow:
+    0 20px 40px -10px color-mix(in oklch, var(--background) 70%, transparent),
+    inset 0 1px 1px color-mix(in oklch, var(--foreground) 22%, transparent);
+}
+
+.glass-pill::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgb(255 255 255 / 0.28) 50%,
+    transparent 60%
+  );
+  transform: translateX(-130%);
+  transition: transform 0.8s ease;
+  pointer-events: none;
+}
+
+.glass-pill:hover::after {
+  transform: translateX(130%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glass-pill::after {
+    display: none;
+  }
+}
+
+/* Tombol navy gelap */
+.btn-navy {
+  font-family: "Plus Jakarta Sans", "Inter", system-ui, sans-serif;
+  background-color: #0d1730;
+  border: 1px solid rgb(255 255 255 / 0.15);
+  box-shadow:
+    0 12px 30px -12px rgb(0 0 0 / 0.6),
+    inset 0 1px 1px rgb(255 255 255 / 0.08);
+  transition: all 0.3s ease;
+}
+
+.btn-navy:hover {
+  background-color: #1a2a5e;
+  border-color: rgb(255 255 255 / 0.25);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans);
+}
+
+/* Safety: tidak ada elemen (mis. pil fisika) yang boleh menggeser halaman menyamping */
+html,
+body {
+  overflow-x: clip;
 }

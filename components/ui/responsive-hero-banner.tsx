@@ -64,13 +64,13 @@ const ResponsiveHeroBanner: React.FC<ResponsiveHeroBannerProps> = ({
             <p className="animate-fade-slide-in-3 mx-auto mt-6 max-w-2xl text-base text-white sm:mx-0 sm:text-lg">{description}</p>
 
             <div className="animate-fade-slide-in-4 mt-10 flex flex-col items-center gap-3 sm:flex-row sm:items-center sm:gap-4">
-              <a href={primaryButtonHref} className="inline-flex items-center gap-2 rounded-full bg-white/10 px-5 py-3 font-sans text-sm font-medium text-white ring-1 ring-white/15 transition-colors hover:bg-white/15">
+              <a href={primaryButtonHref} className="glass-pill inline-flex items-center gap-2 rounded-full px-5 py-3 font-jakarta text-sm font-semibold text-white">
                 {primaryButtonText}
-                <ArrowRight className="h-4 w-4" />
+                <ArrowRight className="relative z-[2] h-4 w-4" />
               </a>
-              <a href={secondaryButtonHref} className="inline-flex items-center gap-2 rounded-full bg-transparent px-5 py-3 font-sans text-sm font-medium text-white transition-colors hover:text-white">
+              <a href={secondaryButtonHref} className="glass-pill inline-flex items-center gap-2 rounded-full px-5 py-3 font-jakarta text-sm font-medium text-white/85 transition-colors hover:text-white">
                 {secondaryButtonText}
-                <Play className="h-4 w-4" />
+                <Play className="relative z-[2] h-4 w-4" />
               </a>
             </div>
           </div>

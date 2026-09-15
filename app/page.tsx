@@ -6,14 +6,18 @@ import VideoSection from "@/components/sections/video-section";
 import AngkaSection from "@/components/sections/angka-section";
 import VisiMisiSection from "@/components/sections/visi-misi-section";
 import FaqSection from "@/components/sections/faq-section";
-import SiteFooter from "@/components/site-footer";
+import { CinematicFooter } from "@/components/ui/motion-footer";
+import AuroraBackground from "@/components/ui/aurora-background";
 
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col bg-black">
+      {/* Shield konten — harus solid + di atas footer fixed biar curtain reveal jalan */}
+      <div className="relative z-10 flex min-h-screen flex-col bg-black">
       <div aria-hidden="true" className="pointer-events-none fixed inset-0 z-0">
         <Starfield />
       </div>
+      <AuroraBackground />
       <SiteNavbar
         navLinks={[
           { label: "Home", href: "#", isActive: true },
@@ -40,7 +44,8 @@ export default function Home() {
       <VideoSection />
       <AngkaSection />
       <FaqSection />
-      <SiteFooter />
+      </div>
+      <CinematicFooter />
     </main>
   );
 }

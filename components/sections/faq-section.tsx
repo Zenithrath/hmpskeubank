@@ -1,5 +1,6 @@
 import { ChevronDown } from "lucide-react";
 import SectionWatermark from "@/components/ui/section-watermark";
+import Reveal from "@/components/ui/reveal";
 
 const faqs = [
   {
@@ -27,31 +28,32 @@ const faqs = [
 export default function FaqSection() {
   return (
     <section className="relative overflow-hidden border-t border-slate-400/10">
-      <SectionWatermark text="TANYA" />
+      <SectionWatermark text="MOSTLY ASKED" />
       <div className="relative mx-auto max-w-3xl px-6 py-24 md:py-32">
-        <div className="text-center">
-          <span className="inline-flex items-center rounded-full border border-blue-400/30 bg-blue-500/10 px-3 py-1 font-sans text-xs font-medium tracking-widest text-white uppercase">
-            FAQ
-          </span>
-          <h2 className="mt-4 font-instrument-serif text-4xl text-white md:text-5xl">
-            Sering Ditanyakan
-          </h2>
-        </div>
+        <Reveal variant="up">
+          <div className="text-center">
+            <span className="inline-flex items-center rounded-full border border-blue-400/30 bg-blue-500/10 px-3 py-1 font-sans text-xs font-medium tracking-widest text-white uppercase">
+              FAQ
+            </span>
+            <h2 className="mt-4 font-instrument-serif text-4xl text-white md:text-5xl">
+              Sering Ditanyakan
+            </h2>
+          </div>
+        </Reveal>
 
         <div className="mt-12 space-y-3">
-          {faqs.map((item) => (
-            <details
-              key={item.q}
-              className="group rounded-2xl border border-slate-400/15 open:border-blue-400/40"
-            >
-              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 p-5 font-sans text-sm font-semibold text-white md:text-base [&::-webkit-details-marker]:hidden">
-                {item.q}
-                <ChevronDown className="h-5 w-5 shrink-0 text-white transition-transform group-open:rotate-180" />
-              </summary>
-              <p className="px-5 pb-5 font-sans text-sm leading-relaxed text-white/70">
-                {item.a}
-              </p>
-            </details>
+          {faqs.map((item, idx) => (
+            <Reveal key={item.q} variant="up" delay={Math.min(idx, 4) * 70}>
+              <details className="group rounded-2xl border border-slate-400/15 open:border-blue-400/40">
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 p-5 font-sans text-sm font-semibold text-white md:text-base [&::-webkit-details-marker]:hidden">
+                  {item.q}
+                  <ChevronDown className="h-5 w-5 shrink-0 text-white transition-transform group-open:rotate-180" />
+                </summary>
+                <p className="px-5 pb-5 font-sans text-sm leading-relaxed text-white/70">
+                  {item.a}
+                </p>
+              </details>
+            </Reveal>
           ))}
         </div>
       </div>

@@ -41,25 +41,29 @@ export default function VisiMisiSection() {
       <SectionWatermark text="VISI-MISI" />
       <div className="relative mx-auto max-w-7xl px-6 py-24 md:py-32">
         <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
-          <h2 className="max-w-xl font-sans text-4xl leading-tight font-bold tracking-tight text-white md:text-6xl">
-            Panca Gerak Vistara Dharma
-          </h2>
-          <div className="max-w-sm">
-            <p className="font-sans text-xs font-medium tracking-widest text-white/50 uppercase">
-              Visi Kabinet
-            </p>
-            <p className="mt-2 font-sans text-sm leading-relaxed text-white/70">
-              Mewujudkan kabinet yang visioner, inovatif, dan berintegritas
-              dalam membangun organisasi yang profesional, beretika, dan
-              bermanfaat bagi seluruh anggota.
-            </p>
-            <a
-              href="#kontak"
-              className="mt-4 inline-flex items-center gap-2 rounded-full bg-blue-600 px-5 py-2.5 font-sans text-sm font-medium text-white shadow-lg shadow-blue-600/30 transition-colors hover:bg-blue-500"
-            >
-              Gabung Kami <ArrowRight className="h-4 w-4" />
-            </a>
-          </div>
+          <Reveal variant="left">
+            <h2 className="max-w-xl font-sans text-4xl leading-tight font-bold tracking-tight text-white md:text-6xl">
+              Panca Gerak Vistara Dharma
+            </h2>
+          </Reveal>
+          <Reveal variant="right" delay={120}>
+            <div className="max-w-sm">
+              <p className="font-sans text-xs font-medium tracking-widest text-white/50 uppercase">
+                Visi Kabinet
+              </p>
+              <p className="mt-2 font-sans text-sm leading-relaxed text-white/70">
+                Mewujudkan kabinet yang visioner, inovatif, dan berintegritas
+                dalam membangun organisasi yang profesional, beretika, dan
+                bermanfaat bagi seluruh anggota.
+              </p>
+              <a
+                href="#kontak"
+                className="btn-navy mt-4 inline-flex items-center gap-2 rounded-full px-5 py-2.5 font-jakarta text-sm font-semibold text-white"
+              >
+                Gabung Kami <ArrowRight className="h-4 w-4" />
+              </a>
+            </div>
+          </Reveal>
         </div>
 
         <div className="relative mt-12">
@@ -71,6 +75,7 @@ export default function VisiMisiSection() {
           {misi.map((item, idx) => (
             <Reveal
               key={item.no}
+              variant="pop"
               delay={Math.floor(idx / 2) * 120 + (idx % 2) * 90}
               className={idx === misi.length - 1 ? "col-span-2 lg:col-span-1" : ""}
             >

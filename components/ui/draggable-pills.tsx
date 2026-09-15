@@ -102,6 +102,9 @@ export function DraggablePills({
         walls: {
           thickness: 80,
           edgePadding: 16,
+          // Dinding samping diteruskan jauh ke atas arena: pil yang
+          // terlempar ke atas tetap memantul kembali, tidak hilang.
+          upExtraPx: 600,
         },
         gate: {
           openExtraPx: 350,
@@ -143,6 +146,11 @@ export function DraggablePills({
       const isTouch =
         "ontouchstart" in window ||
         (navigator.maxTouchPoints != null && navigator.maxTouchPoints > 0);
+
+      // Batas kecepatan + flag gerbang: dipakai containBodies biar pil
+      // tidak tunneling nembus dinding saat di-fling kencang (kasus HP).
+      const MAX_SPEED = 20;
+      let gateShut = false;
 
       // Catatan: JANGAN set overscrollBehavior = "contain" di arena —
       // itu mengunci scroll halaman saat kursor di dalam section.
@@ -209,17 +217,29 @@ export function DraggablePills({
           friction: CONFIG.physics.walls.friction,
         });
 
-        leftWall = Bodies.rectangle(-t / 2, h / 2, t, h + t * 2, {
-          isStatic: true,
-          restitution: CONFIG.physics.walls.restitution,
-          friction: CONFIG.physics.walls.friction,
-        });
+        leftWall = Bodies.rectangle(
+          -t / 2,
+          h / 2 - CONFIG.walls.upExtraPx / 2,
+          t,
+          h + t * 2 + CONFIG.walls.upExtraPx,
+          {
+            isStatic: true,
+            restitution: CONFIG.physics.walls.restitution,
+            friction: CONFIG.physics.walls.friction,
+          }
+        );
 
-        rightWall = Bodies.rectangle(w + t / 2, h / 2, t, h + t * 2, {
-          isStatic: true,
-          restitution: CONFIG.physics.walls.restitution,
-          friction: CONFIG.physics.walls.friction,
-        });
+        rightWall = Bodies.rectangle(
+          w + t / 2,
+          h / 2 - CONFIG.walls.upExtraPx / 2,
+          t,
+          h + t * 2 + CONFIG.walls.upExtraPx,
+          {
+            isStatic: true,
+            restitution: CONFIG.physics.walls.restitution,
+            friction: CONFIG.physics.walls.friction,
+          }
+        );
 
         World.add(world, [ceiling, floor, leftWall, rightWall]);
       };
@@ -243,6 +263,8 @@ export function DraggablePills({
           Body.setPosition(ceilingBody, { x: w / 2, y });
           if (progress < 1) {
             requestAnimationFrame(tick);
+          } else {
+            gateShut = true;
           }
         };
         requestAnimationFrame(tick);
@@ -371,7 +393,73 @@ export function DraggablePills({
         });
       };
 
+      // Jaring pengaman: kunci setiap pil di dalam arena tiap frame.
+      // Tanpa ini, fling kencang (terutama via touch) bisa bikin body
+      // tunneling menembus wall kiri/kanan/lantai lalu hilang ke tepi layar.
+      const containBodies = () => {
+        const { w, h } = getArenaRect();
+
+        // Kunci 1: target drag (mouse) tidak boleh keluar arena.
+        // Ini yang menghentikan pil "diarahkan" user menembus dinding —
+        // constraint fisika tidak pernah menarik ke luar arena.
+        mouse.position.x = Math.min(Math.max(mouse.position.x, 0), w);
+        mouse.position.y = Math.min(Math.max(mouse.position.y, 0), h);
+
+        bodies.forEach((rec) => {
+          const b = rec.body;
+          if (b.isStatic) return;
+
+          let vx = b.velocity.x;
+          let vy = b.velocity.y;
+          const speed = Math.hypot(vx, vy);
+          if (speed > MAX_SPEED) {
+            const k = MAX_SPEED / speed;
+            vx *= k;
+            vy *= k;
+          }
+
+          const hw = rec.w / 2;
+          const hh = rec.h / 2;
+          let x = b.position.x;
+          let y = b.position.y;
+          let fixed = false;
+
+          if (x < hw) {
+            x = hw;
+            if (vx < 0) vx = 0;
+            fixed = true;
+          } else if (x > w - hw) {
+            x = w - hw;
+            if (vx > 0) vx = 0;
+            fixed = true;
+          }
+
+          const floorY = h - hh;
+          if (y > floorY) {
+            y = floorY;
+            if (vy > 0) vy = 0;
+            fixed = true;
+          }
+
+          // Atas dikunci untuk pil yang sedang diseret user (selalu), dan
+          // untuk semua pil setelah gerbang tertutup. Pil yang baru di-drop
+          // memang spawn dari atas — itu dibiarkan jatuh masuk.
+          const dragged = mouseConstraint.constraint.bodyB === b;
+          if ((dragged || gateShut) && y < hh) {
+            y = hh;
+            if (vy < 0) vy = 0;
+            fixed = true;
+          }
+
+          if (fixed || speed > MAX_SPEED) {
+            Body.setPosition(b, { x, y });
+            Body.setVelocity(b, { x: vx, y: vy });
+          }
+        });
+      };
+
       const onAfterUpdate = () => {
+        containBodies();
         renderDOM();
         antiStick(performance.now());
       };

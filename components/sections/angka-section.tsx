@@ -1,6 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import { DraggablePills } from "@/components/ui/draggable-pills";
 import SectionWatermark from "@/components/ui/section-watermark";
+import Reveal from "@/components/ui/reveal";
 
 const stats = [
   {
@@ -26,30 +27,34 @@ const stats = [
 export default function AngkaSection() {
   return (
     <section className="relative overflow-hidden">
-      <SectionWatermark text="ANGKA" />
+      <SectionWatermark text="BEHIND US" />
       <div className="relative mx-auto max-w-7xl px-6 py-24 md:py-32">
         <div className="flex flex-col justify-between gap-8 lg:flex-row">
-          <h2 className="max-w-xl font-sans text-4xl leading-tight font-bold tracking-tight text-white md:text-6xl">
-            Angka di Balik Vistara Dharma
-          </h2>
-          <div className="max-w-sm lg:pt-2">
-            <p className="font-sans text-sm leading-relaxed text-white/70">
-              Vistara yang bertumbuh luas, Dharma yang terukur dan akuntabel —
-              untuk setiap langkah yang berani.
-            </p>
-            <a
-              href="#kontak"
-              className="mt-4 inline-flex items-center gap-2 rounded-full bg-blue-600 px-5 py-2.5 font-sans text-sm font-medium text-white shadow-lg shadow-blue-600/30 transition-colors hover:bg-blue-500"
-            >
-              Gabung Kami <ArrowRight className="h-4 w-4" />
-            </a>
-          </div>
+          <Reveal variant="left">
+            <h2 className="max-w-xl font-sans text-4xl leading-tight font-bold tracking-tight text-white md:text-6xl">
+              Angka di Balik Vistara Dharma
+            </h2>
+          </Reveal>
+          <Reveal variant="right" delay={120}>
+            <div className="max-w-sm lg:pt-2">
+              <p className="font-sans text-sm leading-relaxed text-white/70">
+                Vistara yang bertumbuh luas, Dharma yang terukur dan akuntabel —
+                untuk setiap langkah yang berani.
+              </p>
+              <a
+                href="#kontak"
+                className="btn-navy mt-4 inline-flex items-center gap-2 rounded-full px-5 py-2.5 font-jakarta text-sm font-semibold text-white"
+              >
+                Gabung Kami <ArrowRight className="h-4 w-4" />
+              </a>
+            </div>
+          </Reveal>
         </div>
 
         <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {stats.map((item) => (
+          {stats.map((item, idx) => (
+            <Reveal key={item.unit} variant="pop" delay={idx * 100}>
             <div
-              key={item.unit}
               className={
                 item.variant === "blue"
                   ? "rounded-2xl bg-blue-600 p-8 shadow-lg shadow-blue-600/25"
@@ -80,6 +85,7 @@ export default function AngkaSection() {
                 {item.desc}
               </p>
             </div>
+            </Reveal>
           ))}
         </div>
 

@@ -8,20 +8,25 @@ import {
   type ReactNode,
 } from "react";
 
+export type RevealVariant = "up" | "pop" | "left" | "right";
+
 interface RevealProps {
   children: ReactNode;
   delay?: number;
   className?: string;
+  /** up = fade naik, pop = zoom, left/right = geser dari sisi */
+  variant?: RevealVariant;
 }
 
 /**
- * Bungkus elemen biar muncul halus (fade + rise + unblur)
- * saat pertama kali masuk viewport. Sekali tampil, tetap tampil.
+ * Animasi scroll yang main dua arah: muncul saat masuk viewport,
+ * mengulang saat user scroll balik ke atas/bawah.
  */
 export default function Reveal({
   children,
   delay = 0,
   className = "",
+  variant = "up",
 }: RevealProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
@@ -36,10 +41,7 @@ export default function Reveal({
     const obs = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setVisible(true);
-            obs.disconnect();
-          }
+          setVisible(entry.isIntersecting);
         });
       },
       { threshold: 0.15, rootMargin: "0px 0px -40px 0px" },
@@ -51,6 +53,7 @@ export default function Reveal({
   return (
     <div
       ref={ref}
+      data-variant={variant}
       className={`reveal ${visible ? "is-visible" : ""} ${className}`}
       style={{ "--reveal-delay": `${delay}ms` } as CSSProperties}
     >

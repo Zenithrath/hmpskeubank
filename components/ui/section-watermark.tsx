@@ -11,7 +11,8 @@ export default function SectionWatermark({
   text,
   className = "",
 }: SectionWatermarkProps) {
-  const sizeClass = text.length > 7 ? "text-[15vw]" : "text-[19vw]";
+  const sizeClass =
+    text.length > 10 ? "text-[12vw]" : text.length > 7 ? "text-[15vw]" : "text-[19vw]";
   return (
     <span
       aria-hidden="true"

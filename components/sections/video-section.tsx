@@ -1,4 +1,5 @@
 import Reveal from "@/components/ui/reveal";
+import SectionWatermark from "@/components/ui/section-watermark";
 
 // Ganti dengan ID video YouTube resmi himpunan (bagian setelah v= di URL).
 // Contoh: https://www.youtube.com/watch?v=aqz-KE-bpKQ → ID-nya "aqz-KE-bpKQ".
@@ -8,12 +9,7 @@ export default function VideoSection() {
   return (
     <section id="video" className="relative scroll-mt-24 overflow-hidden">
       {/* Tulisan raksasa di latar, seperti referensi */}
-      <span
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 top-2 bg-gradient-to-b from-white/[0.18] via-white/[0.09] to-transparent bg-clip-text text-center font-sans text-[19vw] leading-none font-bold tracking-tight whitespace-nowrap text-transparent select-none sm:top-10 sm:text-[18vw] lg:text-[13rem]"
-      >
-        COMPROF
-      </span>
+      <SectionWatermark text="COMPROF" />
 
       <div className="relative mx-auto max-w-7xl px-6 py-24 md:py-32">
         <Reveal variant="up">

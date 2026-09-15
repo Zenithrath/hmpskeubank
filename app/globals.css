@@ -84,19 +84,19 @@
 }
 
 .reveal[data-variant="up"] {
-  transform: translateY(26px);
+  transform: translateY(48px);
 }
 
 .reveal[data-variant="pop"] {
-  transform: scale(0.92) translateY(12px);
+  transform: scale(0.9) translateY(16px);
 }
 
 .reveal[data-variant="left"] {
-  transform: translateX(44px);
+  transform: translateX(72px);
 }
 
 .reveal[data-variant="right"] {
-  transform: translateX(-44px);
+  transform: translateX(-72px);
 }
 
 .reveal.is-visible {

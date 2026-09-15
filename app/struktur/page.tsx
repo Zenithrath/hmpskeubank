@@ -104,11 +104,11 @@ export default function StrukturPage() {
                   STRUKTUR
                 </h1>
                 <p className="animate-fade-slide-in-2 -mt-1 font-instrument-serif text-xl text-sky-200/90 italic sm:text-2xl">
-                  kabinet vistara dharma — 2026
+                  kabinet vistara dharma 2026
                 </p>
 
                 <p className="animate-fade-slide-in-3 mx-auto mt-6 max-w-2xl font-sans text-base text-white/65 sm:mx-0 sm:text-lg">
-                  Kenali orang-orang di balik gerak kabinet — dari pimpinan
+                  Kenali orang-orang di balik gerak kabinet. Dari pimpinan
                   hingga empat divisi inti yang menopang kerja Vistara Dharma.
                 </p>
 
@@ -230,7 +230,7 @@ export default function StrukturPage() {
                     </div>
                     <div className="flex flex-col justify-center p-6 sm:p-10">
                       <p className="font-mono text-[11px] tracking-[0.25em] text-sky-300/80 uppercase">
-                        0{idx + 1} — Divisi
+                        Divisi 0{idx + 1}
                       </p>
                       <h3 className="mt-2 font-sans text-2xl font-bold text-white sm:text-4xl">
                         {d.nama}

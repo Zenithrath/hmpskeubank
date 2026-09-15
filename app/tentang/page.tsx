@@ -20,14 +20,14 @@ const makna = [
     kata: "VISTARA",
     arti: "luas, berkembang, terbentang",
     deskripsi:
-      "Vistara adalah keberanian untuk berpikir melampaui batas — wadah yang terbuka bagi siapa pun untuk tumbuh dan menjangkau lebih jauh.",
+      "Vistara adalah keberanian untuk berpikir melampaui batas. Wadah yang terbuka bagi siapa pun untuk tumbuh dan menjangkau lebih jauh.",
     poin: ["Berpikir luas & terbuka", "Bertumbuh tanpa henti", "Berdampak seluas-luasnya"],
   },
   {
     kata: "DHARMA",
     arti: "kebenaran, prinsip, integritas",
     deskripsi:
-      "Dharma adalah kompas yang menjaga setiap langkah tetap lurus — kebenaran yang dipegang, prinsip yang konsisten, dan integritas yang amanah.",
+      "Dharma adalah kompas yang menjaga setiap langkah tetap lurus. Kebenaran yang dipegang, prinsip yang konsisten, dan integritas yang amanah.",
     poin: ["Jujur & transparan", "Konsisten pada prinsip", "Amanah dalam karya"],
   },
 ];
@@ -36,7 +36,7 @@ const budaya = [
   {
     icon: HeartHandshake,
     title: "Kekeluargaan",
-    desc: "Senior dan junior melebur jadi satu keluarga — tidak ada sekat angkatan dalam berkarya.",
+    desc: "Senior dan junior melebur jadi satu keluarga. Tidak ada sekat angkatan dalam berkarya.",
   },
   {
     icon: MessagesSquare,
@@ -56,7 +56,7 @@ const budaya = [
   {
     icon: Users,
     title: "Kolaborasi",
-    desc: "Antar divisi saling menopang — tidak ada yang berjalan sendiri-sendiri.",
+    desc: "Antar divisi saling menopang. Tidak ada yang berjalan sendiri-sendiri.",
   },
   {
     icon: BadgeCheck,
@@ -116,11 +116,11 @@ export default function TentangPage() {
                   TENTANG
                 </h1>
                 <p className="animate-fade-slide-in-2 -mt-1 font-instrument-serif text-xl text-sky-200/90 italic sm:text-2xl">
-                  siapa kami — 2026
+                  siapa kami 2026
                 </p>
 
                 <p className="animate-fade-slide-in-3 mx-auto mt-6 max-w-2xl font-sans text-base text-white/65 sm:mx-0 sm:text-lg">
-                  Himpunan mahasiswa Program Studi KeuBank — rumah bagi mereka
+                  Himpunan mahasiswa Program Studi KeuBank. Rumah bagi mereka
                   yang ingin bertumbuh, berkarya, dan berdampak.
                 </p>
 
@@ -157,7 +157,7 @@ export default function TentangPage() {
             <Reveal variant="up" delay={100}>
               <p className="mt-6 bg-gradient-to-b from-white via-white/75 to-white/45 bg-clip-text font-sans text-xl leading-snug font-semibold text-transparent md:text-3xl">
                 Di HMPS KeuBank, kami percaya organisasi bukan sekadar tentang
-                program — tapi tentang manusia. Kami tumbuh dengan prinsip
+                program, tapi tentang manusia. Kami tumbuh dengan prinsip
                 vistara dan berpegang pada dharma, mengubah kebersamaan menjadi
                 karya yang berdampak bagi anggota dan kampus.
               </p>
@@ -229,7 +229,7 @@ export default function TentangPage() {
                 Cara kami bekerja & bertumbuh
               </h2>
               <p className="mx-auto mt-4 max-w-xl text-center font-sans text-sm leading-relaxed text-white/60 md:text-base">
-                Enam kebiasaan yang dijaga setiap anggota — dari rapat
+                Enam kebiasaan yang dijaga setiap anggota, dari rapat
                 mingguan sampai cara menyambut anggota baru.
               </p>
             </Reveal>
@@ -317,7 +317,7 @@ export default function TentangPage() {
                 </h2>
                 <p className="relative z-[2] mx-auto mt-3 max-w-md font-sans text-sm leading-relaxed text-white/60">
                   Pendaftaran anggota baru dibuka setiap awal periode. Sapa kami
-                  dulu — tidak ada salahnya kenalan.
+                  dulu. Tidak ada salahnya kenalan.
                 </p>
                 <div className="relative z-[2] mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
                   <Link

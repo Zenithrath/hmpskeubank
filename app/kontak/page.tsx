@@ -91,7 +91,7 @@ export default function KontakPage() {
       "",
       isi.trim(),
       "",
-      "— dikirim via web HMPS KeuBank",
+      "Dikirim via web HMPS KeuBank.",
     ];
     const url = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(baris.join("\n"))}`;
     setWaUrl(url);
@@ -161,7 +161,7 @@ export default function KontakPage() {
                   KONTAK
                 </h1>
                 <p className="animate-fade-slide-in-2 -mt-1 font-instrument-serif text-xl text-sky-200/90 italic sm:text-2xl">
-                  suaramu berarti — 2026
+                  suaramu berarti 2026
                 </p>
 
                 <p className="animate-fade-slide-in-3 mx-auto mt-6 max-w-2xl font-sans text-base text-white/65 sm:mx-0 sm:text-lg">
@@ -253,7 +253,7 @@ export default function KontakPage() {
                   Sampaikan aspirasimu, kami dengarkan.
                 </h2>
                 <p className="mt-4 font-sans text-sm leading-relaxed text-white/65 sm:text-base">
-                  Isi form di samping — aspirasimu langsung diteruskan ke
+                  Isi form di samping. Aspirasimu langsung diteruskan ke
                   WhatsApp resmi himpunan. Boleh anonim kalau lebih nyaman.
                 </p>
                 <p className="mt-6 flex items-start gap-2 font-sans text-xs leading-relaxed text-white/45">
@@ -274,7 +274,7 @@ export default function KontakPage() {
                       Aspirasi siap dikirim!
                     </h3>
                     <p className="mt-2 max-w-sm font-sans text-sm leading-relaxed text-white/60">
-                      WhatsApp sudah dibuka di tab baru — tinggal tekan kirim.
+                      WhatsApp sudah dibuka di tab baru. Tinggal tekan kirim.
                       Kalau belum kebuka, pakai tombol di bawah.
                     </p>
                     <div className="mt-7 flex flex-col gap-3 sm:flex-row">
@@ -348,7 +348,7 @@ export default function KontakPage() {
                         className="w-full appearance-none rounded-xl border border-white/15 bg-black/70 px-4 py-3 font-sans text-sm text-white focus:border-sky-300/50 focus:ring-1 focus:ring-sky-300/30 focus:outline-none"
                       >
                         <option value="" className="bg-[#0b1530]">
-                          — Pilih kategori —
+                          Pilih kategori
                         </option>
                         {KATEGORI.map((k) => (
                           <option key={k} value={k} className="bg-[#0b1530]">

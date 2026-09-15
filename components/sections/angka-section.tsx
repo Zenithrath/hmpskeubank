@@ -38,8 +38,8 @@ export default function AngkaSection() {
           <Reveal variant="right" delay={120}>
             <div className="max-w-sm lg:pt-2">
               <p className="font-sans text-sm leading-relaxed text-white/70">
-                Vistara yang bertumbuh luas, Dharma yang terukur dan akuntabel —
-                untuk setiap langkah yang berani.
+              Vistara yang bertumbuh luas dan Dharma yang terukur serta
+              akuntabel untuk setiap langkah yang berani.
               </p>
               <a
                 href="/kontak"

@@ -32,7 +32,7 @@ export default function Home() {
         badgeLabel="HMPS KeuBank"
         badgeText="Kabinet Periode 2026"
         title="Vistara Dharma"
-        description="Kabinet Vistara Dharma — Vistara berarti luas, berkembang, dan terbentang; Dharma berarti kebenaran, prinsip, serta integritas. Inilah kompas kami dalam berkarya dan melayani mahasiswa KeuBank."
+        description="Kabinet Vistara Dharma. Vistara berarti luas, berkembang, dan terbentang. Dharma berarti kebenaran, prinsip, serta integritas. Inilah kompas kami dalam berkarya dan melayani mahasiswa KeuBank."
         primaryButtonText="Lihat Struktur"
         primaryButtonHref="/struktur"
         secondaryButtonText="Tentang Kami"

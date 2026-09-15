@@ -16,7 +16,7 @@ export default function AboutSection() {
           <Reveal variant="up" delay={100} className="md:col-span-9">
             <p className="bg-gradient-to-b from-white via-white/75 to-white/45 bg-clip-text font-sans text-xl leading-snug font-semibold text-transparent md:text-3xl">
               Di HMPS KeuBank, kami percaya organisasi bukan sekadar tentang
-              program — tapi tentang manusia. Kami adalah himpunan mahasiswa
+              program, tapi tentang manusia. Kami adalah himpunan mahasiswa
               Program Studi KeuBank yang tumbuh dengan prinsip vistara dan
               berpegang pada dharma, mengubah kebersamaan menjadi karya yang
               berdampak.

@@ -39,9 +39,9 @@ export const wakil: PengurusInti = {
 };
 
 export const sambutan: string[] = [
-  "Di antara langkah dan waktu, kami berdiri bukan sekadar pengurus, melainkan mahasiswa yang membawa mimpi — mimpi yang lahir dari harapan sederhana: menjadikan HMPS KeuBank lebih hangat, lebih dekat, dan lebih bermakna.",
+  "Di antara langkah dan waktu, kami berdiri bukan sekadar pengurus, melainkan mahasiswa yang membawa mimpi. Mimpi yang lahir dari harapan sederhana: menjadikan HMPS KeuBank lebih hangat, lebih dekat, dan lebih bermakna.",
   "Kami menyebut langkah ini Vistara Dharma. Vistara adalah keberanian untuk bertumbuh luas tanpa kehilangan arah, sementara Dharma adalah kompas kebenaran dan integritas yang menjaga setiap langkah kami tetap bermakna.",
-  "Kabinet ini bukan milik segelintir orang, melainkan milik kita semua — tempat suara menemukan ruang, gagasan menemukan bentuk, dan aksi menemukan makna. Perlahan kita berjalan bersama: bukan tentang menjadi sempurna, melainkan tentang menjadi berarti.",
+  "Kabinet ini bukan milik segelintir orang, melainkan milik kita semua. Tempat suara menemukan ruang, gagasan menemukan bentuk, dan aksi menemukan makna. Perlahan kita berjalan bersama: bukan tentang menjadi sempurna, melainkan tentang menjadi berarti.",
 ];
 
 export const divisi: Divisi[] = [
@@ -50,7 +50,7 @@ export const divisi: Divisi[] = [
     nama: "PSDM",
     kepanjangan: "Pengembangan Sumber Daya Mahasiswa",
     deskripsi:
-      "Divisi yang memastikan setiap anggota tumbuh — dari kaderisasi, pelatihan soft skill, hingga menjaga kekeluargaan dan budaya organisasi.",
+      "Divisi yang memastikan setiap anggota tumbuh, dari kaderisasi, pelatihan soft skill, hingga menjaga kekeluargaan dan budaya organisasi.",
     foto: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=900&auto=format&fit=crop",
     proker: [
       "Kaderisasi anggota baru",
@@ -88,7 +88,7 @@ export const divisi: Divisi[] = [
     nama: "Humas",
     kepanjangan: "Hubungan Masyarakat & Kominfo",
     deskripsi:
-      "Wajah dan suara himpunan ke publik — mengelola media sosial, dokumentasi, publikasi, serta relasi dengan pihak internal dan eksternal kampus.",
+      "Wajah dan suara himpunan ke publik. Mengelola media sosial, dokumentasi, publikasi, serta relasi dengan pihak internal dan eksternal kampus.",
     foto: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=900&auto=format&fit=crop",
     proker: [
       "Pengelolaan media sosial himpunan",

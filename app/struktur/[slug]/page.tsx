@@ -57,7 +57,7 @@ export default async function DivisiDetailPage({
             </Reveal>
             <Reveal variant="up" delay={100}>
               <p className="mt-8 font-mono text-[11px] tracking-[0.25em] text-sky-300/80 uppercase">
-                0{idx + 1} — Divisi
+                Divisi 0{idx + 1}
               </p>
               <h1 className="mt-2 font-sans text-5xl font-bold tracking-tight text-white sm:text-7xl">
                 {d.nama}

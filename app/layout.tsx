@@ -3,7 +3,7 @@ import "./globals.css";
 import SmoothScroll from "@/components/ui/smooth-scroll";
 
 export const metadata: Metadata = {
-  title: "HMPS KeuBank — Kabinet Vistara Dharma",
+  title: "HMPS KeuBank: Kabinet Vistara Dharma",
   description:
     "Vistara berarti luas dan berkembang, Dharma berarti kebenaran dan integritas. Kabinet Vistara Dharma HMPS KeuBank periode 2026.",
   icons: {

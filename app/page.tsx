@@ -22,7 +22,7 @@ export default function Home() {
         navLinks={[
           { label: "Home", href: "#", isActive: true },
           { label: "Tentang", href: "#tentang" },
-          { label: "Divisi", href: "#divisi" },
+          { label: "Divisi", href: "/struktur" },
           { label: "Proker", href: "#proker" },
           { label: "Galeri", href: "#galeri" },
         ]}

@@ -166,6 +166,23 @@
   animation: aurora-float 34s ease-in-out -16s infinite;
 }
 
+/* Putaran lambat cincin akresi black hole */
+@keyframes spin-slower {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@utility animate-spin-slower {
+  animation: spin-slower 28s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-spin-slower {
+    animation: none;
+  }
+}
+
 /* Glass pill ala footer + kilau shiny saat hover */
 .glass-pill {
   position: relative;

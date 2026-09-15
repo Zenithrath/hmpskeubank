@@ -7,8 +7,14 @@ export const metadata: Metadata = {
   description:
     "Vistara berarti luas dan berkembang, Dharma berarti kebenaran dan integritas. Kabinet Vistara Dharma HMPS KeuBank periode 2026.",
   icons: {
-    icon: "/img/logokeubank__1_-removebg-preview.png",
-    apple: "/img/logokeubank__1_-removebg-preview.png",
+    icon: [
+      {
+        url: "/favicon-keubank.png",
+        sizes: "256x256",
+        type: "image/png",
+      },
+    ],
+    apple: "/favicon-keubank.png",
   },
 };
 

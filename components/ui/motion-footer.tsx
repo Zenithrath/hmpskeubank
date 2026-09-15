@@ -325,7 +325,7 @@ export function CinematicFooter({ basePath = "" }: { basePath?: string }) {
               <div className="mt-2 flex w-full flex-wrap justify-center gap-3 md:gap-6">
                 <MagneticButton
                   as="a"
-                  href={`${basePath}#tentang`}
+                  href="/tentang"
                   className="footer-glass-pill rounded-full px-6 py-3 text-xs font-medium text-muted-foreground hover:text-foreground md:text-sm"
                 >
                   Tentang

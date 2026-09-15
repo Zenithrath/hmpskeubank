@@ -21,7 +21,7 @@ export default function Home() {
       <SiteNavbar
         navLinks={[
           { label: "Home", href: "/", isActive: true },
-          { label: "Tentang", href: "/#tentang" },
+          { label: "Tentang", href: "/tentang" },
           { label: "Struktur", href: "/struktur" },
           { label: "Kontak", href: "/kontak" },
         ]}

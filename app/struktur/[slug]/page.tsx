@@ -34,7 +34,7 @@ export default async function DivisiDetailPage({
         <SiteNavbar
           navLinks={[
             { label: "Home", href: "/" },
-            { label: "Tentang", href: "/#tentang" },
+            { label: "Tentang", href: "/tentang" },
             { label: "Struktur", href: "/struktur", isActive: true },
             { label: "Kontak", href: "/kontak" },
           ]}

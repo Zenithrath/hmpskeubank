@@ -3,6 +3,7 @@ import { ArrowDown, ArrowRight, ArrowUpRight } from "lucide-react";
 import SiteNavbar from "@/components/site-navbar";
 import Starfield from "@/components/ui/starfield";
 import AuroraBackground from "@/components/ui/aurora-background";
+import Planet from "@/components/ui/planet";
 import SectionWatermark from "@/components/ui/section-watermark";
 import Reveal from "@/components/ui/reveal";
 import { CinematicFooter } from "@/components/ui/motion-footer";
@@ -63,7 +64,7 @@ export default function StrukturPage() {
         <SiteNavbar
           navLinks={[
             { label: "Home", href: "/" },
-            { label: "Tentang", href: "/#tentang" },
+            { label: "Tentang", href: "/tentang" },
             { label: "Struktur", href: "/struktur", isActive: true },
             { label: "Kontak", href: "/kontak" },
           ]}
@@ -71,18 +72,14 @@ export default function StrukturPage() {
           ctaButtonHref="/kontak"
         />
 
-        {/* Hero — background sama dengan homepage */}
+        {/* Hero — space: planet bercincin + nebula */}
         <section className="relative isolate flex min-h-svh w-full flex-col overflow-hidden">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="https://cdn.21st.dev/assets/mirror/a8/a8cf38f65f7315f95eba8c803c4a80a9d78cb2ea36fbfee49828396e4a0b9737.jpg"
-            alt=""
+          <div
             aria-hidden="true"
-            className="absolute top-0 right-0 bottom-0 left-0 h-full w-full object-cover"
-            style={{ filter: "hue-rotate(195deg) saturate(0.55) brightness(1.3)" }}
+            className="pointer-events-none absolute top-1/3 -left-40 h-96 w-96 rounded-full bg-blue-700/20 blur-[120px]"
           />
-          <div className="pointer-events-none absolute inset-0 bg-blue-800/10" />
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#070d1f]/60 via-transparent to-black" />
+          <Planet variant="ringed" className="top-[8%] right-[-12%] sm:right-[4%]" />
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#070d1f]/40 via-transparent to-black" />
           <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-b from-transparent to-black sm:h-48" />
 
           <div className="relative z-10 flex flex-1 flex-col justify-center">

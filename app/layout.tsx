@@ -26,6 +26,10 @@ export default function RootLayout({
   return (
     <html lang="id" className="h-full antialiased">
       <head>
+        <meta
+          name="google-site-verification"
+          content="X9Kn49BwWFDzL8hF7DVlors5Q6w6sGr79jUZCBUsSLY"
+        />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"

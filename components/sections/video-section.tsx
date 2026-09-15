@@ -8,7 +8,7 @@ export default function VideoSection() {
       {/* Tulisan raksasa di latar, seperti referensi */}
       <span
         aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 top-10 bg-gradient-to-b from-white/[0.12] via-white/[0.06] to-transparent bg-clip-text text-center font-sans text-[30vw] leading-none font-bold tracking-tight whitespace-nowrap text-transparent select-none md:text-[16rem]"
+        className="pointer-events-none absolute inset-x-0 top-2 bg-gradient-to-b from-white/[0.18] via-white/[0.09] to-transparent bg-clip-text text-center font-sans text-[19vw] leading-none font-bold tracking-tight whitespace-nowrap text-transparent select-none sm:top-10 sm:text-[18vw] lg:text-[13rem]"
       >
         COMPROF
       </span>

@@ -29,7 +29,7 @@ const ResponsiveHeroBanner: React.FC<ResponsiveHeroBannerProps> = ({
   secondaryButtonHref = "#tentang",
 }) => {
   return (
-    <section className="relative isolate flex h-svh w-full flex-col overflow-hidden bg-[#070d1f]">
+    <section className="relative isolate flex min-h-svh w-full flex-col overflow-hidden bg-[#070d1f]">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={backgroundImageUrl}
@@ -42,17 +42,17 @@ const ResponsiveHeroBanner: React.FC<ResponsiveHeroBannerProps> = ({
       {/* Overlay navy tipis: teks tetap terbaca, garis tetap terang */}
       <div className="pointer-events-none absolute inset-0 bg-blue-800/10" />
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#070d1f]/60 via-transparent to-black" />
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-48 bg-gradient-to-b from-transparent to-black" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-b from-transparent to-black sm:h-48" />
 
-      <div className="relative z-10 flex flex-1 items-center justify-center">
-        <div className="mx-auto w-full max-w-7xl px-6 py-8">
-          <div className="mx-auto max-w-3xl text-center">
+      <div className="relative z-10 flex flex-1 flex-col justify-center sm:justify-end">
+        <div className="mx-auto w-full max-w-7xl px-6 pt-24 pb-10 sm:pb-20">
+          <div className="mx-auto max-w-4xl text-center sm:mx-0 sm:text-left">
             <div className="animate-fade-slide-in-1 mb-6 inline-flex items-center gap-3 rounded-full bg-white/10 px-2.5 py-2 ring-1 ring-white/15 backdrop-blur">
               <span className="inline-flex items-center rounded-full bg-white/90 px-2 py-0.5 font-sans text-xs font-medium text-neutral-900">{badgeLabel}</span>
               <span className="font-sans text-sm font-medium text-white">{badgeText}</span>
             </div>
 
-            <h1 className="animate-fade-slide-in-2 font-instrument-serif text-4xl leading-tight font-normal tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl">
+            <h1 className="animate-fade-slide-in-2 font-instrument-serif text-[19vw] leading-[0.9] font-normal tracking-tight text-white sm:text-7xl md:text-8xl lg:text-9xl">
               {title}
               {titleLine2 ? (
                 <>
@@ -61,9 +61,9 @@ const ResponsiveHeroBanner: React.FC<ResponsiveHeroBannerProps> = ({
               ) : null}
             </h1>
 
-            <p className="animate-fade-slide-in-3 mx-auto mt-6 max-w-2xl text-base text-white sm:text-lg">{description}</p>
+            <p className="animate-fade-slide-in-3 mx-auto mt-6 max-w-2xl text-base text-white sm:mx-0 sm:text-lg">{description}</p>
 
-            <div className="animate-fade-slide-in-4 mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
+            <div className="animate-fade-slide-in-4 mt-10 flex flex-col items-center gap-3 sm:flex-row sm:items-center sm:gap-4">
               <a href={primaryButtonHref} className="inline-flex items-center gap-2 rounded-full bg-white/10 px-5 py-3 font-sans text-sm font-medium text-white ring-1 ring-white/15 transition-colors hover:bg-white/15">
                 {primaryButtonText}
                 <ArrowRight className="h-4 w-4" />

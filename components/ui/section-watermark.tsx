@@ -11,10 +11,11 @@ export default function SectionWatermark({
   text,
   className = "",
 }: SectionWatermarkProps) {
+  const sizeClass = text.length > 7 ? "text-[15vw]" : "text-[19vw]";
   return (
     <span
       aria-hidden="true"
-      className={`pointer-events-none absolute inset-x-0 top-8 bg-gradient-to-b from-white/[0.12] via-white/[0.06] to-transparent bg-clip-text text-center font-sans text-[26vw] leading-none font-bold tracking-tight whitespace-nowrap text-transparent select-none md:text-[13rem] ${className}`}
+      className={`pointer-events-none absolute inset-x-0 top-2 bg-gradient-to-b from-white/[0.18] via-white/[0.09] to-transparent bg-clip-text text-center font-sans leading-none font-bold tracking-tight whitespace-nowrap text-transparent select-none sm:top-8 sm:text-[18vw] lg:text-[13rem] ${sizeClass} ${className}`}
     >
       {text}
     </span>

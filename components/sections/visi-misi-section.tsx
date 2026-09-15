@@ -1,5 +1,6 @@
 import { ArrowRight, Compass, Eye, HeartHandshake, Lightbulb, ShieldCheck } from "lucide-react";
 import SectionWatermark from "@/components/ui/section-watermark";
+import Reveal from "@/components/ui/reveal";
 
 const misi = [
   {
@@ -37,7 +38,7 @@ const misi = [
 export default function VisiMisiSection() {
   return (
     <section className="relative overflow-hidden border-y border-slate-400/10">
-      <SectionWatermark text="DHARMA" />
+      <SectionWatermark text="VISI-MISI" />
       <div className="relative mx-auto max-w-7xl px-6 py-24 md:py-32">
         <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
           <h2 className="max-w-xl font-sans text-4xl leading-tight font-bold tracking-tight text-white md:text-6xl">
@@ -61,25 +62,36 @@ export default function VisiMisiSection() {
           </div>
         </div>
 
-        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-          {misi.map((item) => (
-            <div
+        <div className="relative mt-12">
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute top-1/3 left-1/2 h-72 w-[120%] -translate-x-1/2 rounded-full bg-blue-500/10 blur-[100px]"
+          />
+          <div className="relative grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-5">
+          {misi.map((item, idx) => (
+            <Reveal
               key={item.no}
-              className="group relative flex min-h-[20rem] flex-col rounded-2xl border border-slate-400/15 p-6 transition-all duration-300 hover:z-10 hover:-translate-y-2 hover:rotate-2 hover:border-transparent hover:bg-[#bfc7d1] hover:shadow-[0_25px_60px_-15px_rgba(191,199,209,0.5)]"
+              delay={Math.floor(idx / 2) * 120 + (idx % 2) * 90}
+              className={idx === misi.length - 1 ? "col-span-2 lg:col-span-1" : ""}
+            >
+            <div
+              className="group relative flex h-full min-h-[17rem] flex-col overflow-hidden rounded-2xl border border-slate-400/15 bg-white/[0.02] p-4 transition-all duration-300 before:absolute before:inset-x-4 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-sky-300/60 before:to-transparent hover:z-10 hover:-translate-y-2 hover:rotate-2 hover:border-transparent hover:bg-[#bfc7d1] hover:shadow-[0_25px_60px_-15px_rgba(191,199,209,0.5)] active:scale-[0.98] sm:min-h-[20rem] sm:p-6"
             >
               <div className="flex items-start justify-between">
-                <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-blue-500/15 text-white ring-1 ring-blue-400/30 transition-colors duration-300 group-hover:bg-[#0b1530]/10 group-hover:text-[#0b1530] group-hover:ring-[#0b1530]/20">
-                  <item.icon className="h-5 w-5" />
+                <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-blue-500/15 text-white ring-1 ring-blue-400/30 transition-colors duration-300 group-hover:bg-[#0b1530]/10 group-hover:text-[#0b1530] group-hover:ring-[#0b1530]/20 sm:h-11 sm:w-11">
+                  <item.icon className="h-4 w-4 sm:h-5 sm:w-5" />
                 </span>
               </div>
-              <h3 className="mt-6 font-sans text-xl leading-snug font-semibold text-white transition-colors duration-300 group-hover:text-[#0b1530]">
+              <h3 className="mt-4 font-sans text-base leading-snug font-semibold text-white transition-colors duration-300 group-hover:text-[#0b1530] sm:mt-6 sm:text-xl">
                 {item.title}
               </h3>
-              <p className="mt-auto pt-6 font-sans text-sm leading-relaxed text-white/70 transition-colors duration-300 group-hover:text-slate-600">
+              <p className="mt-auto pt-4 font-sans text-xs leading-relaxed text-white/70 transition-colors duration-300 group-hover:text-slate-600 sm:pt-6 sm:text-sm">
                 {item.desc}
               </p>
             </div>
+            </Reveal>
           ))}
+          </div>
         </div>
       </div>
     </section>

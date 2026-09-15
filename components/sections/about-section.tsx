@@ -4,8 +4,8 @@ import SectionWatermark from "@/components/ui/section-watermark";
 export default function AboutSection() {
   return (
     <section id="tentang" className="relative scroll-mt-24 overflow-hidden">
-      <SectionWatermark text="TENTANG" />
-      <div className="relative mx-auto max-w-7xl px-6 py-16 md:py-24">
+      <SectionWatermark text="TENTANG" className="-translate-y-2" />
+      <div className="relative mx-auto max-w-7xl px-6 pt-8 pb-16 md:py-24">
         <div className="grid gap-6 md:grid-cols-12">
           <p className="font-sans text-sm font-medium text-white/70 md:col-span-3">
             Tentang HMPS

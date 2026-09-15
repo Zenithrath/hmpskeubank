@@ -207,43 +207,48 @@ export function CinematicFooter() {
     if (typeof window === "undefined") return;
     if (!wrapperRef.current) return;
 
-    // React strict mode compatible GSAP context cleanup
+    // React strict mode compatible GSAP context cleanup.
+    // Scrub/parallax hanya di desktop — di HP dimatikan biar stabil
+    // (tidak ada jump saat URL bar muncul/hilang, tidak ada jank).
     const ctx = gsap.context(() => {
-      // Background Parallax
-      gsap.fromTo(
-        giantTextRef.current,
-        { y: "10vh", scale: 0.8, opacity: 0 },
-        {
-          y: "0vh",
-          scale: 1,
-          opacity: 1,
-          ease: "power1.out",
-          scrollTrigger: {
-            trigger: wrapperRef.current,
-            start: "top 80%",
-            end: "bottom bottom",
-            scrub: 1,
+      const mm = gsap.matchMedia();
+      mm.add("(min-width: 768px)", () => {
+        // Background Parallax
+        gsap.fromTo(
+          giantTextRef.current,
+          { y: "10vh", scale: 0.8, opacity: 0 },
+          {
+            y: "0vh",
+            scale: 1,
+            opacity: 1,
+            ease: "power1.out",
+            scrollTrigger: {
+              trigger: wrapperRef.current,
+              start: "top 80%",
+              end: "bottom bottom",
+              scrub: 1,
+            },
           },
-        },
-      );
+        );
 
-      // Staggered Content Reveal
-      gsap.fromTo(
-        [headingRef.current, linksRef.current],
-        { y: 50, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          stagger: 0.15,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: wrapperRef.current,
-            start: "top 40%",
-            end: "bottom bottom",
-            scrub: 1,
+        // Staggered Content Reveal
+        gsap.fromTo(
+          [headingRef.current, linksRef.current],
+          { y: 50, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            stagger: 0.15,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: wrapperRef.current,
+              start: "top 40%",
+              end: "bottom bottom",
+              scrub: 1,
+            },
           },
-        },
-      );
+        );
+      });
     }, wrapperRef);
 
     return () => ctx.revert();
@@ -264,13 +269,13 @@ export function CinematicFooter() {
       */}
       <div
         ref={wrapperRef}
-        className="relative h-screen w-full"
+        className="relative h-svh w-full"
         style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
       >
         {/* The actual footer stays fixed to the viewport underneath everything */}
-        <footer className="cinematic-footer-wrapper fixed bottom-0 left-0 flex h-screen w-full flex-col justify-between overflow-hidden bg-black text-foreground">
+        <footer className="cinematic-footer-wrapper fixed bottom-0 left-0 flex h-svh w-full flex-col justify-between overflow-hidden bg-black text-foreground">
           {/* Ambient Light & Grid Background */}
-          <div className="footer-aurora animate-footer-breathe pointer-events-none absolute top-1/2 left-1/2 z-0 h-[60vh] w-[80vw] -translate-x-1/2 -translate-y-1/2 rounded-[50%] blur-[80px]" />
+          <div className="footer-aurora animate-footer-breathe pointer-events-none absolute top-1/2 left-1/2 z-0 h-[40vh] w-[90vw] -translate-x-1/2 -translate-y-1/2 rounded-[50%] blur-[40px] sm:h-[60vh] sm:w-[80vw] sm:blur-[80px]" />
           <div className="footer-bg-grid pointer-events-none absolute inset-0 z-0" />
 
           {/* Giant background text */}

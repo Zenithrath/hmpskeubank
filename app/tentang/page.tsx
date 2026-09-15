@@ -339,7 +339,7 @@ export default function TentangPage() {
           </div>
         </section>
       </div>
-      <CinematicFooter basePath="/" />
+      <CinematicFooter />
     </main>
   );
 }

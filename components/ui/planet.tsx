@@ -13,20 +13,34 @@ export default function Planet({ variant = "ringed", className = "" }: PlanetPro
   if (variant === "moon") {
     return (
       <div aria-hidden="true" className={`pointer-events-none absolute ${className}`}>
-        <div className="animate-planet-float relative h-24 w-24 sm:h-32 sm:w-32">
+        <div className="animate-planet-float relative h-28 w-28 sm:h-40 sm:w-40">
+          {/* orbit tipis */}
           <div
-            className="absolute inset-0 overflow-hidden rounded-full"
+            className="absolute top-1/2 left-1/2 h-[46%] w-[150%] rounded-[50%] border border-sky-200/25"
+            style={{ transform: "translate(-50%,-50%) rotate(-14deg) scaleY(0.36)" }}
+          />
+          <span className="absolute top-[6%] right-[18%] h-1.5 w-1.5 rounded-full bg-sky-200 shadow-[0_0_8px_2px_rgba(186,230,253,0.8)]" />
+          <div
+            className="absolute inset-[18%] overflow-hidden rounded-full"
             style={{
               background:
-                "radial-gradient(circle at 34% 30%, #f8fafc 0%, #cbd5e1 42%, #64748b 72%, #0f172a 100%)",
+                "radial-gradient(circle at 34% 30%, #ffffff 0%, #bae6fd 40%, #38bdf8 66%, #0c1a3d 100%)",
               boxShadow:
-                "inset -10px -8px 24px rgba(2,6,23,0.8), 0 0 36px 6px rgba(148,163,184,0.3)",
+                "inset -12px -9px 26px rgba(2,6,23,0.75), 0 0 48px 10px rgba(125,211,252,0.35)",
             }}
           >
             {/* kawah */}
-            <span className="absolute top-[30%] left-[30%] h-[16%] w-[16%] rounded-full bg-slate-800/25" />
-            <span className="absolute top-[55%] left-[55%] h-[22%] w-[22%] rounded-full bg-slate-800/20" />
-            <span className="absolute top-[62%] left-[28%] h-[11%] w-[11%] rounded-full bg-slate-800/25" />
+            <span className="absolute top-[30%] left-[32%] h-[15%] w-[15%] rounded-full bg-sky-950/25" />
+            <span className="absolute top-[54%] left-[54%] h-[21%] w-[21%] rounded-full bg-sky-950/20" />
+            <span className="absolute top-[62%] left-[28%] h-[10%] w-[10%] rounded-full bg-sky-950/25" />
+            {/* terminator */}
+            <span
+              className="absolute inset-0"
+              style={{
+                background:
+                  "radial-gradient(circle at 70% 68%, transparent 46%, rgba(2,6,23,0.7) 78%)",
+              }}
+            />
           </div>
         </div>
       </div>

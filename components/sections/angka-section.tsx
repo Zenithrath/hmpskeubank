@@ -92,9 +92,6 @@ export default function AngkaSection() {
         <div className="mt-14">
           <DraggablePills />
         </div>
-        <p className="mt-4 text-center font-sans text-xs text-white/50">
-          * Angka contoh — ganti dengan data resmi himpunan.
-        </p>
       </div>
     </section>
   );

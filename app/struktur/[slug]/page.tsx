@@ -169,7 +169,7 @@ export default async function DivisiDetailPage({
           </div>
         </section>
       </div>
-      <CinematicFooter basePath="/" />
+      <CinematicFooter />
     </main>
   );
 }

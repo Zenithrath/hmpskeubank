@@ -6,6 +6,10 @@ export const metadata: Metadata = {
   title: "HMPS KeuBank — Kabinet Vistara Dharma",
   description:
     "Vistara berarti luas dan berkembang, Dharma berarti kebenaran dan integritas. Kabinet Vistara Dharma HMPS KeuBank periode 2026.",
+  icons: {
+    icon: "/img/logokeubank__1_-removebg-preview.png",
+    apple: "/img/logokeubank__1_-removebg-preview.png",
+  },
 };
 
 export default function RootLayout({

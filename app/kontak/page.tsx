@@ -14,7 +14,6 @@ import {
 import SiteNavbar from "@/components/site-navbar";
 import Starfield from "@/components/ui/starfield";
 import AuroraBackground from "@/components/ui/aurora-background";
-import Planet from "@/components/ui/planet";
 import SectionWatermark from "@/components/ui/section-watermark";
 import Reveal from "@/components/ui/reveal";
 import { CinematicFooter } from "@/components/ui/motion-footer";
@@ -127,13 +126,16 @@ export default function KontakPage() {
           ctaButtonHref="#aspirasi"
         />
 
-        {/* Hero — space: bulan kecil + nebula */}
+        {/* Hero — streak sama kayak homepage, beda crop + tint */}
         <section className="relative isolate flex min-h-svh w-full flex-col overflow-hidden">
-          <div
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="https://cdn.21st.dev/assets/mirror/a8/a8cf38f65f7315f95eba8c803c4a80a9d78cb2ea36fbfee49828396e4a0b9737.jpg"
+            alt=""
             aria-hidden="true"
-            className="pointer-events-none absolute top-1/2 -right-32 h-96 w-96 rounded-full bg-sky-500/15 blur-[120px]"
+            className="absolute top-0 right-0 bottom-0 left-0 h-full w-full object-cover object-[78%_25%]"
+            style={{ filter: "hue-rotate(222deg) saturate(0.75) brightness(1.05)" }}
           />
-          <Planet variant="moon" className="top-[12%] right-[10%] sm:right-[16%]" />
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#070d1f]/40 via-transparent to-black" />
           <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-b from-transparent to-black sm:h-48" />
 
@@ -200,7 +202,7 @@ export default function KontakPage() {
                       href={item.href}
                       target={item.href.startsWith("http") ? "_blank" : undefined}
                       rel="noreferrer"
-                      className="group flex h-full items-start gap-4 rounded-2xl border border-white/10 bg-white/[0.02] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-sky-300/30 hover:bg-white/[0.04]"
+                      className="group flex h-full items-start gap-4 rounded-2xl border border-white/15 bg-[#0d1730]/85 p-6 backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-sky-300/40 hover:bg-[#16244d]/85"
                     >
                       <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-blue-500/15 text-white ring-1 ring-blue-400/30">
                         <item.icon className="h-5 w-5" />
@@ -215,7 +217,7 @@ export default function KontakPage() {
                       </span>
                     </a>
                   ) : (
-                    <div className="flex h-full items-start gap-4 rounded-2xl border border-white/10 bg-white/[0.02] p-6">
+                    <div className="flex h-full items-start gap-4 rounded-2xl border border-white/15 bg-[#0d1730]/85 p-6 backdrop-blur">
                       <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-blue-500/15 text-white ring-1 ring-blue-400/30">
                         <item.icon className="h-5 w-5" />
                       </span>
@@ -262,7 +264,7 @@ export default function KontakPage() {
             </div>
 
             <Reveal variant="right" delay={120} className="lg:col-span-3">
-              <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 ring-1 ring-white/5 backdrop-blur sm:p-8">
+              <div className="rounded-2xl border border-white/15 bg-[#0b1530]/85 p-6 ring-1 ring-white/10 backdrop-blur-xl sm:p-8">
                 {waUrl ? (
                   <div className="flex flex-col items-center py-8 text-center">
                     <span className="inline-flex h-14 w-14 items-center justify-center rounded-full bg-emerald-500/15 ring-1 ring-emerald-400/40">
@@ -311,7 +313,7 @@ export default function KontakPage() {
                           onChange={(e) => setNama(e.target.value)}
                           disabled={anonim}
                           placeholder="Nama lengkap"
-                          className="w-full rounded-xl border border-white/10 bg-black/40 px-4 py-3 font-sans text-sm text-white placeholder:text-white/30 focus:border-sky-300/50 focus:ring-1 focus:ring-sky-300/30 focus:outline-none disabled:opacity-40"
+                          className="w-full rounded-xl border border-white/15 bg-black/70 px-4 py-3 font-sans text-sm text-white placeholder:text-white/30 focus:border-sky-300/50 focus:ring-1 focus:ring-sky-300/30 focus:outline-none disabled:opacity-40"
                         />
                       </div>
                       <div>
@@ -327,7 +329,7 @@ export default function KontakPage() {
                           value={prodi}
                           onChange={(e) => setProdi(e.target.value)}
                           placeholder="cth. KeuBank '24"
-                          className="w-full rounded-xl border border-white/10 bg-black/40 px-4 py-3 font-sans text-sm text-white placeholder:text-white/30 focus:border-sky-300/50 focus:ring-1 focus:ring-sky-300/30 focus:outline-none"
+                          className="w-full rounded-xl border border-white/15 bg-black/70 px-4 py-3 font-sans text-sm text-white placeholder:text-white/30 focus:border-sky-300/50 focus:ring-1 focus:ring-sky-300/30 focus:outline-none"
                         />
                       </div>
                     </div>
@@ -343,7 +345,7 @@ export default function KontakPage() {
                         id="aspirasi-kategori"
                         value={kategori}
                         onChange={(e) => setKategori(e.target.value)}
-                        className="w-full appearance-none rounded-xl border border-white/10 bg-black/40 px-4 py-3 font-sans text-sm text-white focus:border-sky-300/50 focus:ring-1 focus:ring-sky-300/30 focus:outline-none"
+                        className="w-full appearance-none rounded-xl border border-white/15 bg-black/70 px-4 py-3 font-sans text-sm text-white focus:border-sky-300/50 focus:ring-1 focus:ring-sky-300/30 focus:outline-none"
                       >
                         <option value="" className="bg-[#0b1530]">
                           — Pilih kategori —
@@ -369,7 +371,7 @@ export default function KontakPage() {
                         onChange={(e) => setIsi(e.target.value)}
                         rows={5}
                         placeholder="Tulis aspirasi, keluhan, atau idemu di sini…"
-                        className="w-full resize-y rounded-xl border border-white/10 bg-black/40 px-4 py-3 font-sans text-sm leading-relaxed text-white placeholder:text-white/30 focus:border-sky-300/50 focus:ring-1 focus:ring-sky-300/30 focus:outline-none"
+                        className="w-full resize-y rounded-xl border border-white/15 bg-black/70 px-4 py-3 font-sans text-sm leading-relaxed text-white placeholder:text-white/30 focus:border-sky-300/50 focus:ring-1 focus:ring-sky-300/30 focus:outline-none"
                       />
                     </div>
 
@@ -403,7 +405,7 @@ export default function KontakPage() {
           </div>
         </section>
       </div>
-      <CinematicFooter basePath="/" />
+      <CinematicFooter />
     </main>
   );
 }

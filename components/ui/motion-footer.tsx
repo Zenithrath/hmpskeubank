@@ -197,7 +197,7 @@ MagneticButton.displayName = "MagneticButton";
 // -------------------------------------------------------------------------
 // 3. MAIN COMPONENT — adapted for HMPS KeuBank
 // -------------------------------------------------------------------------
-export function CinematicFooter({ basePath = "" }: { basePath?: string }) {
+export function CinematicFooter() {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const giantTextRef = useRef<HTMLDivElement>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
@@ -313,10 +313,10 @@ export function CinematicFooter({ basePath = "" }: { basePath?: string }) {
 
                 <MagneticButton
                   as="a"
-                  href={`${basePath}#proker`}
+                  href="/struktur"
                   className="footer-glass-pill group flex items-center gap-3 rounded-full px-10 py-5 text-sm font-bold text-foreground md:text-base"
                 >
-                  Jelajahi Proker
+                  Lihat Struktur
                   <ArrowRight className="h-6 w-6 text-muted-foreground transition-all group-hover:translate-x-1 group-hover:text-foreground" />
                 </MagneticButton>
               </div>

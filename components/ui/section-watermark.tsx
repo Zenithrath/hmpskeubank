@@ -29,24 +29,29 @@ export default function SectionWatermark({
     if (!el || typeof window === "undefined") return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-    const tween = gsap.fromTo(
-      el,
-      { yPercent: 40 },
-      {
-        yPercent: -40,
-        ease: "none",
-        scrollTrigger: {
-          trigger: el.parentElement,
-          start: "top bottom",
-          end: "bottom top",
-          scrub: 1,
+    const mm = gsap.matchMedia();
+    // Parallax cuma di desktop — di HP watermark diam biar stabil.
+    mm.add("(min-width: 768px)", () => {
+      const tween = gsap.fromTo(
+        el,
+        { yPercent: 40 },
+        {
+          yPercent: -40,
+          ease: "none",
+          scrollTrigger: {
+            trigger: el.parentElement,
+            start: "top bottom",
+            end: "bottom top",
+            scrub: 1,
+          },
         },
-      },
-    );
-    return () => {
-      tween.scrollTrigger?.kill();
-      tween.kill();
-    };
+      );
+      return () => {
+        tween.scrollTrigger?.kill();
+        tween.kill();
+      };
+    });
+    return () => mm.revert();
   }, [text]);
 
   const sizeClass =

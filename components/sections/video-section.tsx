@@ -21,8 +21,8 @@ export default function VideoSection() {
               Kenali Vistara Dharma Lebih Dekat
             </h2>
             <p className="mx-auto mt-4 max-w-xl font-sans text-sm leading-relaxed text-white/70 md:text-base">
-              Tonton video profil kabinet — ganti ID videonya di file
-              video-section.tsx dengan video YouTube resmi himpunan.
+              Tonton video profil kabinet dan kenali lebih dekat orang-orang
+              serta program di balik Vistara Dharma.
             </p>
           </div>
         </Reveal>

@@ -274,18 +274,10 @@ export default function StrukturPage() {
                 </Reveal>
               ))}
             </div>
-            <Reveal variant="up" delay={150}>
-              <p className="mt-12 font-sans text-xs text-white/40">
-                * Data contoh — ganti dengan data resmi himpunan di{" "}
-                <code className="rounded bg-white/10 px-1.5 py-0.5 font-mono">
-                  data/struktur.ts
-                </code>
-              </p>
-            </Reveal>
           </div>
         </section>
       </div>
-      <CinematicFooter basePath="/" />
+      <CinematicFooter />
     </main>
   );
 }

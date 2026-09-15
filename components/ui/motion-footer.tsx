@@ -304,7 +304,7 @@ export function CinematicFooter({ basePath = "" }: { basePath?: string }) {
               <div className="flex w-full flex-wrap justify-center gap-4">
                 <MagneticButton
                   as="a"
-                  href={`${basePath}#kontak`}
+                  href="/kontak"
                   className="footer-glass-pill group flex items-center gap-3 rounded-full px-10 py-5 text-sm font-bold text-foreground md:text-base"
                 >
                   <Users className="h-6 w-6 text-muted-foreground transition-colors group-hover:text-foreground" />
@@ -335,18 +335,11 @@ export function CinematicFooter({ basePath = "" }: { basePath?: string }) {
                   href="/struktur"
                   className="footer-glass-pill rounded-full px-6 py-3 text-xs font-medium text-muted-foreground hover:text-foreground md:text-sm"
                 >
-                  Divisi
+                  Struktur
                 </MagneticButton>
                 <MagneticButton
                   as="a"
-                  href={`${basePath}#galeri`}
-                  className="footer-glass-pill rounded-full px-6 py-3 text-xs font-medium text-muted-foreground hover:text-foreground md:text-sm"
-                >
-                  Galeri
-                </MagneticButton>
-                <MagneticButton
-                  as="a"
-                  href={`${basePath}#kontak`}
+                  href="/kontak"
                   className="footer-glass-pill rounded-full px-6 py-3 text-xs font-medium text-muted-foreground hover:text-foreground md:text-sm"
                 >
                   Kontak

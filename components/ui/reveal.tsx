@@ -41,10 +41,16 @@ export default function Reveal({
     const obs = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          setVisible(entry.isIntersecting);
+          if (entry.isIntersecting) {
+            setVisible(true);
+          } else if (entry.intersectionRatio === 0) {
+            // Sembunyikan lagi HANYA kalau sudah keluar viewport total,
+            // biar tidak kedip-kedip saat scroll pelan di tepi.
+            setVisible(false);
+          }
         });
       },
-      { threshold: 0.1, rootMargin: "0px 0px -5% 0px" },
+      { threshold: [0, 0.1], rootMargin: "0px 0px -5% 0px" },
     );
     obs.observe(el);
     return () => obs.disconnect();

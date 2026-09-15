@@ -42,7 +42,7 @@ export default function AngkaSection() {
                 untuk setiap langkah yang berani.
               </p>
               <a
-                href="#kontak"
+                href="/kontak"
                 className="btn-navy mt-4 inline-flex items-center gap-2 rounded-full px-5 py-2.5 font-jakarta text-sm font-semibold text-white"
               >
                 Gabung Kami <ArrowRight className="h-4 w-4" />

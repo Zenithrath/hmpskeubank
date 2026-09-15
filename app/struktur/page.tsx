@@ -64,12 +64,11 @@ export default function StrukturPage() {
           navLinks={[
             { label: "Home", href: "/" },
             { label: "Tentang", href: "/#tentang" },
-            { label: "Divisi", href: "/struktur", isActive: true },
-            { label: "Proker", href: "/#proker" },
-            { label: "Galeri", href: "/#galeri" },
+            { label: "Struktur", href: "/struktur", isActive: true },
+            { label: "Kontak", href: "/kontak" },
           ]}
           ctaButtonText="Gabung Kami"
-          ctaButtonHref="/#kontak"
+          ctaButtonHref="/kontak"
         />
 
         {/* Hero — background sama dengan homepage */}
@@ -89,15 +88,12 @@ export default function StrukturPage() {
           <div className="relative z-10 flex flex-1 flex-col justify-center">
             <div className="mx-auto w-full max-w-7xl px-6 pt-24 pb-10 sm:pb-20">
               <div className="mx-auto max-w-4xl text-center sm:mx-0 sm:text-left">
-                <div className="animate-fade-slide-in-1 mb-5 flex items-center justify-between font-mono text-[11px] tracking-[0.3em] text-white/40 uppercase">
-                  <p>
-                    <Link href="/" className="transition-colors hover:text-white">
-                      Home
-                    </Link>{" "}
-                    / Struktur
-                  </p>
-                  <p className="hidden sm:block">01 — Organisasi</p>
-                </div>
+                <p className="animate-fade-slide-in-1 mb-5 font-mono text-[11px] tracking-[0.3em] text-white/40 uppercase">
+                  <Link href="/" className="transition-colors hover:text-white">
+                    Home
+                  </Link>{" "}
+                  / Struktur
+                </p>
                 <div className="animate-fade-slide-in-1 mb-6 inline-flex items-center gap-3 rounded-full bg-white/10 px-2.5 py-2 ring-1 ring-white/15 backdrop-blur">
                   <span className="inline-flex items-center rounded-full bg-white/90 px-2 py-0.5 font-sans text-xs font-medium text-neutral-900">
                     Struktur Organisasi

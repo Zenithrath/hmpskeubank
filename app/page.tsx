@@ -20,14 +20,13 @@ export default function Home() {
       <AuroraBackground />
       <SiteNavbar
         navLinks={[
-          { label: "Home", href: "#", isActive: true },
-          { label: "Tentang", href: "#tentang" },
-          { label: "Divisi", href: "/struktur" },
-          { label: "Proker", href: "#proker" },
-          { label: "Galeri", href: "#galeri" },
+          { label: "Home", href: "/", isActive: true },
+          { label: "Tentang", href: "/#tentang" },
+          { label: "Struktur", href: "/struktur" },
+          { label: "Kontak", href: "/kontak" },
         ]}
         ctaButtonText="Gabung Kami"
-        ctaButtonHref="#kontak"
+        ctaButtonHref="/kontak"
       />
       <ResponsiveHeroBanner
         badgeLabel="HMPS KeuBank"

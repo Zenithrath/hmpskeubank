@@ -32,7 +32,7 @@ interface StarfieldProps {
 export default function Starfield({
   className = "",
   density = 1 / 7500,
-  meteorInterval = [3000, 6500],
+  meteorInterval = [4500, 9000],
 }: StarfieldProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
@@ -52,7 +52,9 @@ export default function Starfield({
     ).matches;
 
     const seedStars = () => {
-      const count = Math.min(320, Math.floor(w * h * density));
+      // HP: bintang lebih sedikit biar rAF ringan
+      const cap = w < 768 ? 140 : 320;
+      const count = Math.min(cap, Math.floor(w * h * density));
       stars = Array.from({ length: count }, () => {
         const roll = Math.random();
         // 80% kecil, 15% sedang, 5% besar + glow
@@ -67,7 +69,8 @@ export default function Starfield({
           y: Math.random() * h,
           r,
           baseAlpha: r > 1.6 ? 0.95 : Math.random() * 0.5 + 0.4,
-          speed: Math.random() * 1.6 + 0.5,
+          // Kedip pelan dan tenang — posisi bintang tidak pernah berubah.
+          speed: Math.random() * 0.6 + 0.3,
           phase: Math.random() * Math.PI * 2,
           glow: r > 1.6,
         };
@@ -75,7 +78,7 @@ export default function Starfield({
     };
 
     const resize = () => {
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
       w = canvas.clientWidth;
       h = canvas.clientHeight;
       canvas.width = Math.floor(w * dpr);
@@ -97,22 +100,23 @@ export default function Starfield({
       });
     };
 
+    // Tanpa shadowBlur (mahal di GPU) — glow dipalsukan pakai lingkaran alpha.
+    // Amplitudo kedip kecil biar tenang dilihat.
     const drawStars = (t: number) => {
       ctx.fillStyle = "#ffffff";
       for (const s of stars) {
-        ctx.globalAlpha =
-          s.baseAlpha * (0.55 + 0.45 * Math.sin(t * s.speed + s.phase));
+        const a = s.baseAlpha * (0.72 + 0.28 * Math.sin(t * s.speed + s.phase));
         if (s.glow) {
-          ctx.shadowBlur = 12;
-          ctx.shadowColor = "rgba(255,255,255,0.9)";
-        } else {
-          ctx.shadowBlur = 0;
+          ctx.globalAlpha = a * 0.22;
+          ctx.beginPath();
+          ctx.arc(s.x, s.y, s.r * 3.2, 0, Math.PI * 2);
+          ctx.fill();
         }
+        ctx.globalAlpha = a;
         ctx.beginPath();
         ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
         ctx.fill();
       }
-      ctx.shadowBlur = 0;
       ctx.globalAlpha = 1;
     };
 
@@ -138,12 +142,9 @@ export default function Starfield({
         ctx.stroke();
         ctx.globalAlpha = p;
         ctx.fillStyle = "#ffffff";
-        ctx.shadowBlur = 15;
-        ctx.shadowColor = "rgba(255,255,255,0.9)";
         ctx.beginPath();
         ctx.arc(m.x, m.y, 2.5, 0, Math.PI * 2);
         ctx.fill();
-        ctx.shadowBlur = 0;
         ctx.globalAlpha = 1;
       }
     };
@@ -157,7 +158,14 @@ export default function Starfield({
     }
 
     let nextMeteor = performance.now() + 1200;
+    let lastFrame = 0;
     const tick = (now: number) => {
+      // Throttle ~30fps: cukup untuk kedip + komet, jauh lebih ringan.
+      if (now - lastFrame < 33) {
+        raf = requestAnimationFrame(tick);
+        return;
+      }
+      lastFrame = now;
       const t = now / 1000;
       ctx.clearRect(0, 0, w, h);
       drawStars(t);

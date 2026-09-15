@@ -35,12 +35,11 @@ export default async function DivisiDetailPage({
           navLinks={[
             { label: "Home", href: "/" },
             { label: "Tentang", href: "/#tentang" },
-            { label: "Divisi", href: "/struktur", isActive: true },
-            { label: "Proker", href: "/#proker" },
-            { label: "Galeri", href: "/#galeri" },
+            { label: "Struktur", href: "/struktur", isActive: true },
+            { label: "Kontak", href: "/kontak" },
           ]}
           ctaButtonText="Gabung Kami"
-          ctaButtonHref="/#kontak"
+          ctaButtonHref="/kontak"
         />
 
         {/* Hero */}

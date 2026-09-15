@@ -71,14 +71,13 @@
   animation-delay: 0.55s;
 }
 
-/* Reveal on scroll — dipakai via <Reveal>, main dua arah */
+/* Reveal on scroll — dipakai via <Reveal>, main dua arah.
+   HANYA opacity + transform (compositor-only) biar 60fps, tanpa blur. */
 .reveal {
   opacity: 0;
-  filter: blur(6px);
   transition:
     opacity 0.7s ease,
-    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
-    filter 0.7s ease;
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
   transition-delay: var(--reveal-delay, 0ms);
   will-change: opacity, transform;
 }
@@ -102,14 +101,12 @@
 .reveal.is-visible {
   opacity: 1;
   transform: none;
-  filter: blur(0);
 }
 
 @media (prefers-reduced-motion: reduce) {
   .reveal {
     opacity: 1;
     transform: none;
-    filter: none;
     transition: none;
   }
   .animate-aurora,
